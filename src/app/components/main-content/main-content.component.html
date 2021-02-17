@@ -1,0 +1,13 @@
+<div class="container" style="width: 100%">
+    <header style="height: 125px;">
+        <h3 class="">{{resourceBundle.label_title_info_ppal}}</h3>  
+    </header>
+    <nav>
+        <p-panelMenu [model]="items"  [style]="{'width':'220px'}" [multiple]="false"></p-panelMenu> 
+    </nav>
+
+    <article>
+        <router-outlet name="router_contenido"></router-outlet>
+    </article>
+    <footer class="tituloTabla">{{resourceBundle.label_foot_ppal}}</footer>
+</div>

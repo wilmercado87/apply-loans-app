@@ -1,0 +1,16 @@
+<div class="p-field p-col">
+    <label for="amountLoan" [formGroup]="parentForm">{{resourceBundle.label_amount_loan}}
+        <p-inputNumber pTooltip="El monto minimo 100.00 USD maximo 100.000.00 USD" mode="currency" [min]="100" [max]="100000" [showButtons]="true" currency="USD" locale="en-US" inputId="amountLoan" placeholder="{{resourceBundle.placeholder_amount_loan}}" [formControlName]="'amountLoan'"></p-inputNumber>
+    </label>
+</div>
+<div class="p-field p-col">
+    <label for="payDate" [formGroup]="parentForm">{{resourceBundle.label_pay_date}}
+        <p-calendar inputId="payDate" dateFormat="mm-dd-yy" [minDate]="minDateValue" [showIcon]="true" [formControlName]="'payDate'"></p-calendar>
+    </label>
+</div>
+<div class="p-field p-col" [formGroup]="parentForm">
+    <label for="payCredit">{{resourceBundle.label_pay_credit}}
+        <p-selectButton [options]="creditPayOptions" optionLabel="label" optionValue="value" [formControlName]="'payCredit'"></p-selectButton>
+    </label>
+</div>
+

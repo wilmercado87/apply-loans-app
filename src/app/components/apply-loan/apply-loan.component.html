@@ -1,0 +1,29 @@
+<div class="container" align="center">
+    <div class="row">
+        <div class="col-sm">
+            <form [formGroup]="parentForm" (ngSubmit)="saveData()" novalidate>
+                <div class="tituloTabla" style="width: 300px">
+                    <div><label>{{resourceBundle.label_title_info_amount_capital_bank}}}</label></div>
+                    <div><label>{{amountCapitalBank | currency:'USD'}}</label></div>
+                    <div><label>{{resourceBundle.label_title_info_apply_loan}}</label></div>
+                </div>
+                
+                <div class="textoFuente14Negrita">
+                    <app-user [parentForm]="parentForm"></app-user>
+                    <app-loan [parentForm]="parentForm"></app-loan>
+                </div>
+                <div class="textoFuente14Negrita">
+                    <div class="p-field p-col" align="center">
+                        <p-button type="submit" [disabled]="parentForm.invalid" label="{{resourceBundle.button_enter}}"  icon="pi pi-check" iconPos="left"></p-button>
+                    </div>
+                </div>
+                <div class="p-field p-col" align="center" style="width: 400px;">
+                    <p-messages [(value)]="msgs"></p-messages>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

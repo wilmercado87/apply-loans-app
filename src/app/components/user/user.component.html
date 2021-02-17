@@ -1,0 +1,15 @@
+<div class="p-field p-col">
+    <label for="identification" [formGroup]="parentForm">{{resourceBundle.label_identification}}
+        <input type="number" id="identification" name="identification" pInputText placeholder="{{resourceBundle.placeholder_identification}}" [formControlName]="'identification'" style="width: 250px;"/>
+    </label>
+</div>
+<div class="p-field p-col">
+    <label for="name" [formGroup]="parentForm">{{resourceBundle.label_name}}
+        <input type="text" id="name" name="name" pInputText placeholder="{{resourceBundle.placeholder_name}}" [formControlName]="'name'" style="width: 250px;"/>
+    </label>
+</div>
+<div class="p-field p-col">
+    <label for="mail" [formGroup]="parentForm">{{resourceBundle.label_mail}}
+        <input type="email" id="mail" name="mail" pInputText placeholder="{{resourceBundle.placeholder_mail}}" [formControlName]="'mail'" style="width: 250px;"/>
+    </label>
+</div>
