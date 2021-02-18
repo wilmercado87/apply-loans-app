@@ -66,10 +66,14 @@ export class BaseComponent implements OnInit {
   }
 
   loadMessagesApp() {
-    this._genericService.loadMessagesApp().
+    this.resourceBundle = JSON.parse(localStorage.getItem(resources.MESSAGES));
+    if (this.resourceBundle == null){
+      this._genericService.loadMessagesApp().
       subscribe(resourceBundle => {
         this.resourceBundle = resourceBundle;
+        localStorage.setItem(resources.MESSAGES, JSON.stringify(this.resourceBundle));
       });
+    }
   }
 
   next() {
