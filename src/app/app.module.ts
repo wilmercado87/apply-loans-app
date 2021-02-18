@@ -42,18 +42,17 @@ import { GenericService } from './services/generic.service';
 import { UserService } from './services/user.service';
 import { UsersLonsRegisteredComponent } from './components/users-lons-registered/users-lons-registered.component';
 
-
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'main_content', pathMatch: 'full' },
   {
-    path: 'main_content', component: MainContentComponent, children:
-      [
-        { path: 'apply_loan', component: ApplyLoanComponent, outlet: 'router_contenido' },
-        { path: 'users_loans_registered', component: UsersLonsRegisteredComponent, outlet: 'router_contenido' },
-      ]
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
   },
-  { path: '**', component: MainContentComponent }
-];
+  {
+    path: '', 
+    loadChildren: () => import('./modules/main-content/main-content.module').then(m => m.MainContentModule)
+  }
+]
 
 @NgModule({
   declarations: [
