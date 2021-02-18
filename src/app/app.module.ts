@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -50,7 +50,8 @@ const appRoutes: Routes = [
   },
   {
     path: '', 
-    loadChildren: () => import('./modules/main-content/main-content.module').then(m => m.MainContentModule)
+    loadChildren: () => import('./modules/main-content/main-content.module').then(m => m.MainContentModule),
+    data: {preload:true}
   }
 ]
 
@@ -87,7 +88,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: "reload", useHash: true }),
+    RouterModule.forRoot(appRoutes,  { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: "reload", useHash: true }),
   ],
   providers: [UtilityService, GenericService, LoanService, UserService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
